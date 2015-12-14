@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
-    <link href="../css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vendor/bootstrap.min.css">
     <!-- Loading Flat UI -->
-    <link href="../css/flat-ui.min.css" rel="stylesheet">
+    <link href="css/flat-ui.min.css" rel="stylesheet">
     <script src="../js/vendor/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/vendor/video.js"></script>
-    <script src="../js/flat-ui.min.js"></script>
+    <script src="js/vendor/video.js"></script>
+    <script src="js/flat-ui.js"></script>
+    <script src="jquery-2.1.4.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.js"></script>
@@ -30,7 +30,6 @@
             <a class="btn btn-lg btn-primary">New Quote</a>
         </div>
     </div>
-    <!-- /.container -->
     <footer>
         <div class="container-fluid">
             <div class="row">
@@ -40,11 +39,9 @@
             <iframe src="http://ghbtns.com/github-btn.html?user=PotatoClock&type=follow&count=true" height="20" width="195" frameborder="0" scrolling="0" style="width:195px; height: 20px;" allowTransparency="true"></iframe>
         </p>
     </div>
-    <!-- /col-xs-7 -->
     </div>
     </div>
     </footer>
-    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
     <script>
         $("#quote").ready(function () {
             generate();

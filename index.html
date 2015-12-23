@@ -6,8 +6,11 @@
     <title>Silicon Valley(TV) - A Quote Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <!-- Load Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Load Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
     <!-- Load JavaScript -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -16,31 +19,36 @@
       <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
 </head>
+<style>
+    footer {
+        background-color: dimgrey;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+    }
+</style>
 
 <body>
     <div class="container text-center" style="width:500px;">
-        <h3>"A Silicon Valley(TV) Random Quote Generator."<h4> - A Random Quote Generator</h2></h1>
-        <div id="#quote">"<span class="saying"></span>"
+        <h3 class="text-primary">"A Silicon Valley (TV) Random Quote Generator."<h4 class="text-primary"> - A Random Quote Generator</h2></h1>
+        <div class="quote-medium" id="quote"><i>"<span class="saying"></span>"</i>
             <br> - <span class="author"></span></div>
         <div class="col-lg-12">
-            <a class="btn btn-lg btn-primary">New Quote</a>
+            <a class="btn btn-lg btn-primary" id="newQuote">New Quote</a>
         </div>
+        <a class="btn btn-lg btn-primary" id="playlistButton">Let's make it more immersive!</a>
     </div>
+    
+    <!-- Playlist -->
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-7">
-        <p class="pvl">
-            <iframe src="http://ghbtns.com/github-btn.html?user=PotatoClock&type=follow&count=true" height="20" width="195" frameborder="0" scrolling="0" style="width:195px; height: 40px;" allowTransparency="true"></iframe>
-        </p>
-    </div>
-    </div>
-    </div>
+         <div id="playlist" style="display:none;">
+        <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aremsiag%3Aplaylist%3A3oC6urkApACJhPHoGt6pv0" width="300" height="150" frameborder="0" allowtransparency="true"></iframe>
+        </div>
     </footer>
     <script>
-        $("#quote").ready(function () {
+        $(".quote-medium").ready(function () {
             generate()
-
+        });
             function generate() {
                 var quotes = [
 "It's weird. They always travel in groups of five. These programmers, there's always a tall, skinny white guy; short, skinny Asian guy; fat guy with a ponytail; some guy with crazy facial hair; and then an East Indian guy. It's like they trade guys until they all have the right group.@Gavin",
@@ -60,16 +68,21 @@
 "I don’t know how you did it, but you essentially aged 40 years in the last seven weeks. We had a meth addict in here this morning who was biologically younger than you are, and he’s 58. Myspace guy.@Richard's Doctor",
 "You know who else is Canadian? Justin Bieber. The Hitler of music..@Dinesh",
 "I own 10% of Pied Piper.@Erlich"
-];
+];            
                 randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
                 quoteAuthor = randomQuote.split("@");
                 $(".saying").text(quoteAuthor[0]);
                 $(".author").text(quoteAuthor[1]);
             }
 
-            $(".btn").on("click", function () {
+            $("#newQuote").on("click", function () {
                 generate();
             });
+            
+            $("#playlistButton").click(function (e) {
+            e.preventDefault();
+            $("#playlist").toggle();
+                alert("Silicon Valley Playlist Activated. Enjoi :)")
         });
     </script>
 </body>
